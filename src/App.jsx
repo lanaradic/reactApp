@@ -22,6 +22,12 @@ const App = () => {
     setMovies(data.Search);
   };
 
+  const handleSearch = (e) => {
+    if (e.key === "Enter") {
+      searchMovies(searchTerm);
+    }
+  };
+
   return (
     <div className="app">
       <h1> Panda`s MovieLand</h1>
@@ -31,6 +37,7 @@ const App = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search for movies"
+          onKeyDown={handleSearch}
         />
         <img
           src={SearchIcon}
